@@ -16,7 +16,7 @@
         }
 
         header {
-            background: #DEB71D; /* Warm yellow header for bold contrast */
+            background: #DEB71D;
             color: white;
             padding: 15px 20px;
             position: fixed;
@@ -26,8 +26,7 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
+            justify-content: space-between;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
@@ -41,15 +40,15 @@
         }
 
         .nav-menu button {
-            background: #FC8811; /* Warm orange buttons */
+            background: #FC8811;
             border: none;
             color: white;
             font-weight: 600;
-            padding: 12px 20px;
+            padding: 12px 15px;
             cursor: pointer;
             border-radius: 25px;
-            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 14px;
         }
 
         .nav-menu button:hover {
@@ -57,50 +56,73 @@
             transform: scale(1.05);
         }
 
+        /* Responsive Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu-toggle:focus {
+            outline: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #DEB71D;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                padding: 10px 0;
+            }
+
+            .nav-menu button {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
         .hero {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            flex-wrap: wrap;
             padding: 100px 10%;
-            text-align: left;
+            text-align: center;
         }
 
         .hero-text {
-            max-width: 50%;
+            max-width: 90%;
         }
 
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 52px;
+            font-size: 42px;
             font-weight: bold;
-            color: #02831E; /* Darker green for emphasis */
-            opacity: 0;
-            transform: translateY(-30px);
-            animation: fadeInMove 1.5s ease-in-out forwards;
+            color: #02831E;
         }
 
         .hero-text p {
             font-size: 18px;
             color: white;
-            opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeInMove 1.8s ease-in-out forwards;
-        }
-
-        @keyframes fadeInMove {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-image {
-            max-width: 40%;
-            text-align: right;
+            max-width: 90%;
+            margin-top: 20px;
         }
 
         .hero-image img {
@@ -118,7 +140,7 @@
             text-decoration: none;
             border-radius: 25px;
             font-weight: 600;
-            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .cta-btn:hover {
@@ -135,11 +157,32 @@
             font-weight: bold;
             box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.2);
         }
+
+        @media (max-width: 600px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-image {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="Capture.PNG" alt="Clover Salon Logo" class="logo">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <div class="nav-menu">
             <button onclick="showContent('about')">Om Oss</button>
             <button onclick="showContent('services')">Våra Tjänster</button>
@@ -166,10 +209,14 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
         function showContent(sectionId) {
             console.log("Showing content for section:", sectionId);
         }
     </script>
 </body>
 </html>
-
