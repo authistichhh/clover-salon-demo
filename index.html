@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clover Salon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Lora:ital,wght@0,400;1,500&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #F03869; /* Vibrant pink background */
+            color: #02831E; /* Deep green text for contrast */
+            padding-top: 80px;
+        }
+
+        header {
+            background: #DEB71D; /* Warm yellow header for bold contrast */
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-menu button {
+            background: #FC8811; /* Warm orange buttons */
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+            font-size: 16px;
+        }
+
+        .nav-menu button:hover {
+            background: #02831E;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10%;
+            text-align: left;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: bold;
+            color: #02831E; /* Darker green for emphasis */
+            opacity: 0;
+            transform: translateY(-30px);
+            animation: fadeInMove 1.5s ease-in-out forwards;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: white;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInMove 1.8s ease-in-out forwards;
+        }
+
+        @keyframes fadeInMove {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-image {
+            max-width: 40%;
+            text-align: right;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #02831E;
+            color: white;
+            padding: 12px 25px;
+            margin-top: 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .cta-btn:hover {
+            background: #FC8811;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #DEB71D;
+            color: white;
+            padding: 20px;
+            margin-top: 50px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Capture.PNG" alt="Clover Salon Logo" class="logo">
+        <div class="nav-menu">
+            <button onclick="showContent('about')">Om Oss</button>
+            <button onclick="showContent('services')">Våra Tjänster</button>
+            <button onclick="showContent('gallery')">Galleri</button>
+            <button onclick="showContent('booking')">Boka Tid</button>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Där din skönhet får blomstra som ett fyrklöver</h1>
+            <p>Upplev lyx, harmoni och elegans i varje behandling.</p>
+            <a href="#booking" class="cta-btn">Boka en Tid</a>
+        </div>
+        <div class="hero-image">
+            <img src="IMG_2628.jpg" alt="Clover Salon Nails">
+        </div>
+    </section>
+    
+    <footer>
+        <p>📍 Adress: Clover Salon, Stockholm, Sweden</p>
+        <p>📞 Telefon: +46 123 456 789</p>
+        <p>📧 E-post: info@cloversalon.se</p>
+    </footer>
+
+    <script>
+        function showContent(sectionId) {
+            console.log("Showing content for section:", sectionId);
+        }
+    </script>
+</body>
+</html>
+
